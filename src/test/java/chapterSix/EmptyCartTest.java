@@ -11,37 +11,33 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EmptyCartTest {
+public class EmptyCartTest extends TestShopScenario {
 
     @Test
     public void EmptyCart(){
-        ChromeDriverManager.getInstance().setup();
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://techblog.polteq.com/testshop/index.php");
-        driver.manage().window().maximize();
-
-        driver.findElement(By.className("first_item")).click();
-        driver.findElement(By.cssSelector("[class=\"product-name\"][title=\"iPod shuffle\"]")).click();
-        driver.findElement(By.cssSelector("[class=\"buttons_bottom_block no-print\"] [type=\"submit\"]")).click();
-
-        WebDriverWait wait = new WebDriverWait(driver, 2);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")));
-
-        driver.findElement(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")).click();
-        String cartFilled = driver.findElement(By.cssSelector("[class=\"ajax_cart_quantity unvisible\"]")).getText();
-
-        assertThat(cartFilled).isEqualTo("1").as("Cart has to contain 1 item.");
-
-        driver.findElement(By.cssSelector("[title=\"View my shopping cart\"]")).click();
-        driver.findElement(By.cssSelector("[class=\"icon-trash\"]")).click();
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ajax_cart_no_product")));
 
         WebElement cartStatus = driver.findElement(By.className("ajax_cart_no_product"));
 
-        assertThat(cartStatus.isDisplayed()).isTrue().as("Cart has to be empty.");
+        if(cartStatus.isDisplayed() == true) {
 
-        driver.quit();
+
+            driver.findElement(By.className("first_item")).click();
+            driver.findElement(By.cssSelector("[class=\"product-name\"][title=\"iPod shuffle\"]")).click();
+            driver.findElement(By.cssSelector("[class=\"buttons_bottom_block no-print\"] [type=\"submit\"]")).click();
+
+            WebDriverWait wait = new WebDriverWait(driver, 2);
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")));
+
+            driver.findElement(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")).click();
+
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[title=\"View my shopping cart\"]")));
+
+            driver.findElement(By.cssSelector("[title=\"View my shopping cart\"]")).click();
+            driver.findElement(By.cssSelector("[class=\"icon-trash\"]")).click();
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ajax_cart_no_product")));
+
+            assertThat(cartStatus.isDisplayed()).isTrue().as("Cart has to be empty.");
+        }
     }
 }

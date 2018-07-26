@@ -10,15 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FillCartTest {
+public class FillCartTest extends TestShopScenario {
 
     @Test
     public void AddItemToCart(){
-        ChromeDriverManager.getInstance().setup();
+        /*ChromeDriverManager.getInstance().setup();
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://techblog.polteq.com/testshop/index.php");
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();*/
 
         WebElement cartStatus = driver.findElement(By.className("ajax_cart_no_product"));
 
@@ -36,6 +36,6 @@ public class FillCartTest {
 
         assertThat(cartFilled).isEqualTo("1").as("Cart has to contain 1 item.");
 
-        driver.quit();
+        //driver.quit();
     }
 }
