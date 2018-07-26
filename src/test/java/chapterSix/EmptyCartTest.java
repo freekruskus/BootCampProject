@@ -1,10 +1,7 @@
 package chapterSix;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -25,7 +22,7 @@ public class EmptyCartTest extends TestShopScenario {
             driver.findElement(By.cssSelector("[class=\"product-name\"][title=\"iPod shuffle\"]")).click();
             driver.findElement(By.cssSelector("[class=\"buttons_bottom_block no-print\"] [type=\"submit\"]")).click();
 
-            WebDriverWait wait = new WebDriverWait(driver, 2);
+            WebDriverWait wait = new WebDriverWait(driver, 3);
             wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")));
 
             driver.findElement(By.cssSelector("[class=\"continue btn btn-default button exclusive-medium\"]")).click();
@@ -37,6 +34,7 @@ public class EmptyCartTest extends TestShopScenario {
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("ajax_cart_no_product")));
 
+            cartStatus = driver.findElement(By.className("ajax_cart_no_product"));
             assertThat(cartStatus.isDisplayed()).isTrue().as("Cart has to be empty.");
         }
     }
