@@ -14,7 +14,7 @@ public class FirstSeleniumTest {
     public void logInSuccesFull(){
         ChromeDriverManager.getInstance().setup();
         WebDriver driver = new ChromeDriver();
-
+        
         driver.get("https://techblog.polteq.com/testshop/index.php");
         driver.manage().window().maximize();
 
