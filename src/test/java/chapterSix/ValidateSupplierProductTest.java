@@ -15,15 +15,14 @@ public class ValidateSupplierProductTest extends TestShopScenario{
         driver.findElement(By.cssSelector("[name='supplier_list']")).click();
         driver.findElement(By.cssSelector("[value='https://techblog.polteq.com/testshop/index.php?id_supplier=1&controller=supplier']")).click();
 
-        List<WebElement> appleProductsList=driver.findElements(By.cssSelector("[id='center_column'] a[class='product-name']"));
+        List<WebElement> appleProductsList=driver.findElements(By.cssSelector("[id='center_column'] [class='product-name']"));
         List<String> productStringList=new ArrayList<String>();
 
         for(int i=0; i<appleProductsList.size(); i++){
             productStringList.add(appleProductsList.get(i).getText());
             System.out.println(productStringList);
         }
-
-        assertThat(productStringList).contains("MacBook Air");
+        assertThat(productStringList).contains("MacBook Windows").as("Product list has to contain MacBook Air.");
     }
 
 }
