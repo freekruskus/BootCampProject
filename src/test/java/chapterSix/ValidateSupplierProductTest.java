@@ -15,15 +15,15 @@ public class ValidateSupplierProductTest extends TestShopScenario{
         driver.findElement(By.cssSelector("[name='supplier_list']")).click();
         driver.findElement(By.cssSelector("[value='https://techblog.polteq.com/testshop/index.php?id_supplier=1&controller=supplier']")).click();
 
-        List<WebElement> myList=driver.findElements(By.cssSelector("[class='product_list grid row']"));
+        List<WebElement> appleProductsList=driver.findElements(By.cssSelector("[id='center_column'] a[class='product-name']"));
+        List<String> productStringList=new ArrayList<String>();
 
-        //List<String> all_elements_text=new ArrayList();
+        for(int i=0; i<appleProductsList.size(); i++){
+            productStringList.add(appleProductsList.get(i).getText());
+            System.out.println(productStringList);
+        }
 
-        //for(int i=0; i<myList.size(); i++){
-          //  all_elements_text.add(myList.get(i).getText());
-        //}
-
-        assertThat(myList).toString().contains("MacBook Air");
+        assertThat(productStringList).contains("MacBook Air");
     }
 
 }
