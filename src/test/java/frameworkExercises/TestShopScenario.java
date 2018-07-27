@@ -1,4 +1,4 @@
-package chapterSix;
+package frameworkExercises;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;
