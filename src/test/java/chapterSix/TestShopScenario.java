@@ -17,7 +17,7 @@ public class TestShopScenario {
             driver.get("https://techblog.polteq.com/testshop/index.php");
         }
 
-        @AfterMethod
+        //@AfterMethod
         public void tearDown() {
             driver.quit();
         }

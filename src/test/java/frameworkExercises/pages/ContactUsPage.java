@@ -30,10 +30,21 @@ public class ContactUsPage {
 
             Select dropdown = new Select(driver.findElement(subjectSelection));
             dropdown.selectByVisibleText("Customer service");
+            /*try{
+                driver.findElement(emailTextField).sendKeys(email);
+            }catch(Exception){
+
+            }*/
             driver.findElement(emailTextField).sendKeys(email);
             driver.findElement(orderIdTextField).sendKeys(OrderID);
             driver.findElement(messageTextField).sendKeys(message);
             driver.findElement(sendButton).click();
 
+    }
+
+    public void fillInNameInContactForm(String email){
+        driver.findElement(emailTextField).clear();
+        driver.findElement(emailTextField).sendKeys(email);
+        driver.findElement(orderIdTextField).click();
     }
 }
