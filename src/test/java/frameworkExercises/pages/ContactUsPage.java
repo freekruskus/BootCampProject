@@ -26,15 +26,22 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
+    public void fillInEmail(String email){
+        driver.findElement(emailTextField).sendKeys(email);
+    }
+
+    public void fillInOrderId(String OrderID){
+        driver.findElement(orderIdTextField).sendKeys(OrderID);
+    }
+
+    public void fillInMessage(String message){
+        driver.findElement(messageTextField).sendKeys(message);
+    }
+
     public void fillInContactForm(String email, String OrderID, String message){
 
             Select dropdown = new Select(driver.findElement(subjectSelection));
             dropdown.selectByVisibleText("Customer service");
-            /*try{
-                driver.findElement(emailTextField).sendKeys(email);
-            }catch(Exception){
-
-            }*/
             driver.findElement(emailTextField).sendKeys(email);
             driver.findElement(orderIdTextField).sendKeys(OrderID);
             driver.findElement(messageTextField).sendKeys(message);
@@ -46,5 +53,6 @@ public class ContactUsPage {
         driver.findElement(emailTextField).clear();
         driver.findElement(emailTextField).sendKeys(email);
         driver.findElement(orderIdTextField).click();
+        driver.findElement(By.cssSelector("[class='form-control grey validate']")).isDisplayed();
     }
 }

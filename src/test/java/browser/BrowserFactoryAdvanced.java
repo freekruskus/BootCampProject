@@ -46,8 +46,6 @@ public class BrowserFactoryAdvanced {
         //Chrome options are Chrome specific
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("start-maximized");
-        options.addArguments("ignore-certificate-errors");
-        options.addArguments("disable-infobars");
         options.setCapability("firefox-switches", "--verbose");
         //Capabilities can be used for Webdriver capabilities ie: proxy
         FirefoxDriverManager.getInstance().setup();
