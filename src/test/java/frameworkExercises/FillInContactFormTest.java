@@ -1,11 +1,12 @@
 package frameworkExercises;
 
 import bootCamp.ContactUsPage;
+import chapterSix.TestShopScenario;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FillInContactFormTest extends TestShopScenario{
+public class FillInContactFormTest extends TestShopScenario {
 
         @Test
         public void fillInForm(){
