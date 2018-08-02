@@ -1,4 +1,4 @@
-package bootCamp;
+package frameworkExercises.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,12 +28,12 @@ public class ContactUsPage {
 
     public void fillInContactForm(String email, String OrderID, String message){
 
-        Select dropdown = new Select(driver.findElement(subjectSelection));
-        dropdown.selectByVisibleText("Customer service");
-        driver.findElement(emailTextField).sendKeys(email);
-        driver.findElement(orderIdTextField).sendKeys(OrderID);
-        driver.findElement(messageTextField).sendKeys(message);
-        driver.findElement(sendButton).click();
+            Select dropdown = new Select(driver.findElement(subjectSelection));
+            dropdown.selectByVisibleText("Customer service");
+            driver.findElement(emailTextField).sendKeys(email);
+            driver.findElement(orderIdTextField).sendKeys(OrderID);
+            driver.findElement(messageTextField).sendKeys(message);
+            driver.findElement(sendButton).click();
 
     }
 }

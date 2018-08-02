@@ -1,12 +1,9 @@
-package frameworkExercises;
+package frameworkExercises.pages;
 
-import chapterSix.TestShopScenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class LogInPage extends TestShopScenario {
+public class LogInPage{
 
     private WebDriver driver;
 
