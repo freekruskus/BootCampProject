@@ -1,11 +1,10 @@
-package frameworkExercises;
+package homeworkAssignment;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,25 +56,6 @@ public class DeleteWishListTest extends TestShopScenario{
 
             //asserts that wishlist contains "Feel the pain".
             assertThat(driver.findElement(By.cssSelector("[id='mywishlist']")).getText()).contains(wishListName);
-
-            /*
-            //finds all delete buttons in table.
-            List<WebElement> findDeleteButton = driver.findElements(By.xpath("//td[@class='wishlist_delete']"));
-            List<String> deleteButtonContents = new ArrayList<String>();
-
-            //for each delete button, looks for unique ID in onclick attribute.
-            for(int i=0; i<findDeleteButton.size(); i++){
-
-                deleteButtonContents.add(findDeleteButton.get(i).getAttribute("onclick"));
-                System.out.println(deleteButtonContents);
-                //check if unique ID is present in current iteration of deleteButtonContents.
-                if(deleteButtonContents.contains(idSelector)){
-                    System.out.println("test");
-                    //driver.findElement(By.xpath("//tr/td[@class='wishlist_delete']/a[contains(@onclick, '" + idSelector + "')]")).click();
-                    break;
-                }
-                deleteButtonContents.clear();
-            }*/
         }
 
     }
