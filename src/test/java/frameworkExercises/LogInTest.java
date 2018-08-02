@@ -11,5 +11,6 @@ public class LogInTest extends TestShopScenario{
     public void LogIntoPage(){
         LogInPage goToLogInPage = new LogInPage(driver);
         goToLogInPage.LogIn("bootcamper@feelthepain.com", "1qazxsw2");
+        assertThat(driver.findElement(By.cssSelector("[class='account']")).isDisplayed());
     }
 }

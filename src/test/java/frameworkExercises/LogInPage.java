@@ -22,8 +22,6 @@ public class LogInPage extends TestShopScenario {
             driver.findElement(By.id("email")).sendKeys(loginName);
             driver.findElement(By.id("passwd")).sendKeys(password);
             driver.findElement(By.id("SubmitLogin")).click();
-
-            assertThat(driver.findElement(By.cssSelector("[class='account']")).isDisplayed());
         }
     }
 }
