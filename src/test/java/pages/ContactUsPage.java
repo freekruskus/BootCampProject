@@ -1,4 +1,4 @@
-package frameworkExercises.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,37 +22,37 @@ public class ContactUsPage {
 
 
     public ContactUsPage(WebDriver driver){
-
         this.driver = driver;
     }
 
     public void fillInEmail(String email){
+        driver.findElement(emailTextField).clear();
         driver.findElement(emailTextField).sendKeys(email);
     }
 
     public void fillInOrderId(String OrderID){
+        driver.findElement(orderIdTextField).clear();
         driver.findElement(orderIdTextField).sendKeys(OrderID);
     }
 
     public void fillInMessage(String message){
+        driver.findElement(messageTextField).clear();
         driver.findElement(messageTextField).sendKeys(message);
     }
 
-    public void fillInContactForm(String email, String OrderID, String message){
+    public void fillInContactForm(String subject, String email, String OrderID, String message){
 
-            Select dropdown = new Select(driver.findElement(subjectSelection));
-            dropdown.selectByVisibleText("Customer service");
-            driver.findElement(emailTextField).sendKeys(email);
-            driver.findElement(orderIdTextField).sendKeys(OrderID);
-            driver.findElement(messageTextField).sendKeys(message);
-            driver.findElement(sendButton).click();
-
+        Select dropdown = new Select(driver.findElement(subjectSelection));
+        dropdown.selectByVisibleText(subject);
+        fillInEmail(email);
+        fillInOrderId(OrderID);
+        fillInMessage(message);
+        driver.findElement(sendButton).click();
     }
 
-    public void fillInNameInContactForm(String email){
-        driver.findElement(emailTextField).clear();
-        driver.findElement(emailTextField).sendKeys(email);
+    public boolean fillInNameInContactForm(String email){
+        fillInEmail(email);
         driver.findElement(orderIdTextField).click();
-        driver.findElement(By.cssSelector("[class='form-control grey validate']")).isDisplayed();
+        return driver.findElement(By.cssSelector("[class='form-control grey validate']")).isDisplayed();
     }
 }

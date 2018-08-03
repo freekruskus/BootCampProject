@@ -1,7 +1,7 @@
 package frameworkExercises;
 
 import chapterSix.TestShopScenario;
-import frameworkExercises.pages.LogInPage;
+import pages.LogInPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;

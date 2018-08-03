@@ -1,23 +1,27 @@
-package frameworkExercises;
+package dataDriven;
 
 import chapterSix.TestShopScenario;
+import org.testng.annotations.Parameters;
 import pages.ContactUsPage;
 import pages.HomePage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FillInContactFormTest extends TestShopScenario {
+public class DataDrivenTest extends TestShopScenario {
 
+        @Parameters({"subject", "email", "orderID", "message"})
         @Test
-        public void fillInForm(){
+        public void fillInForm(String subject, String email, String orderID, String message){
 
             HomePage myHomePage = new HomePage(driver);
-            ContactUsPage myContactPage = new ContactUsPage(driver);
-
             myHomePage.notLoggedInContactPage();
-            myContactPage.fillInContactForm("Customer service","bootcamper@feelthepain.com", "4321234", "Ipod defect while lifting, need new one");
+
+            ContactUsPage myContactPage = new ContactUsPage(driver);
+            myContactPage.fillInContactForm(subject, email, orderID, message);
             assertThat(driver.findElement(By.cssSelector("[class='alert alert-success']")).isDisplayed());
+
         }
 
 }
