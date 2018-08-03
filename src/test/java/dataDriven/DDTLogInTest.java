@@ -22,6 +22,6 @@ public class DDTLogInTest extends TestShopScenario{
         myAccountPage.createWishList(wishListName);
         assertThat(myAccountPage.checkWishList()).isEqualTo(wishListName);
 
-
+        //test login NOK
     }
 }
