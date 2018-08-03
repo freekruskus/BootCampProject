@@ -1,19 +1,20 @@
-package chapterSix;
+package browserDriven;
 
-import browser.BrowserFactoryBasic;
 import browser.BrowserFactoryAdvanced;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
-public class TestShopScenario {
+public class TestShopScenarioBrowserDriven {
 
 
         protected WebDriver driver;
 
+        @Parameters("browser")
         @BeforeMethod
-        public void setUp() {
-            driver = BrowserFactoryAdvanced.getDriver(BrowserFactoryAdvanced.BrowserEnums.CHROME);
+        public void setUp(BrowserFactoryAdvanced.BrowserEnums browser) {
+            driver = BrowserFactoryAdvanced.getDriver(browser);
             driver.get("https://techblog.polteq.com/testshop/index.php");
         }
 
@@ -21,4 +22,7 @@ public class TestShopScenario {
         public void tearDown() {
             driver.quit();
         }
+
+
+
 }

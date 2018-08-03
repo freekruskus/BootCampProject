@@ -22,7 +22,7 @@ public class ValidateSupplierProductTest extends TestShopScenario{
             productStringList.add(appleProductsList.get(i).getText());
             System.out.println(productStringList);
         }
-        assertThat(productStringList).contains("MacBook Windows").as("Product list has to contain MacBook Air.");
+        assertThat(productStringList).contains("MacBook Air").as("Product list has to contain MacBook Air.");
     }
 
 }

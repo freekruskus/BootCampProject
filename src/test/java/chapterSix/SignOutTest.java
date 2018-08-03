@@ -1,10 +1,7 @@
 package chapterSix;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,11 +9,6 @@ public class SignOutTest extends TestShopScenario{
 
     @Test
     public void SignInAndSignOut(){
-        /*ChromeDriverManager.getInstance().setup();
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://techblog.polteq.com/testshop/index.php");
-        driver.manage().window().maximize();*/
 
         driver.findElement(By.className("login")).click();
         driver.findElement(By.id("email")).sendKeys("freek.ruskus@polteq.com");
@@ -35,7 +27,5 @@ public class SignOutTest extends TestShopScenario{
 
         boolean SignInPresent = driver.findElements(By.className("login")).size() > 0;
         Assert.assertTrue(SignInPresent);
-
-        //driver.quit();
     }
 }
